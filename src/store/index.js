@@ -30,12 +30,20 @@ export default createStore({
       };
       state.todos.push(todo);
     },
+    change(state, id) {
+      let todo = state.todos.find((todo) => todo.id === id);
+      todo.isCompleted = !todo.isCompleted;
+    },
   },
   actions: {
     addAction(context, object) {
       context.commit("add", object);
       // setTimeout(() => {
       // }, 2000);
+    },
+
+    changeToggle(context, id) {
+      context.commit("change", id);
     },
   },
   modules: {},

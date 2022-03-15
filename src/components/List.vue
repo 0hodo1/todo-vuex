@@ -28,7 +28,7 @@ export default {
     });
 
     const handleToggle = (todo) => {
-      todo.isCompleted = !todo.isCompleted;
+      store.dispatch("changeToggle", todo.id);
     };
 
     return {

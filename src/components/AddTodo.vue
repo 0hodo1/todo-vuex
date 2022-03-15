@@ -20,8 +20,6 @@ export default {
     const todo = ref("");
 
     const addTodo = () => {
-      console.log(todo.value);
-
       const object = {
         todoName: todo.value,
         isCompleted: false,
