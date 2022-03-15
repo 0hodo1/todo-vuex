@@ -2,12 +2,14 @@
   <div class="page-title">Todos</div>
   <ul class="list">
     <div v-for="todo in todos" :key="todo.id">
-      <li v-if="todo.isCompleted" class="completed-list-title">
-        {{ todo.todo }}
-      </li>
-      <li v-else class="not-completed-list-title">
-        {{ todo.todo }}
-      </li>
+      <a @click="handleToggle(todo)">
+        <li v-if="todo.isCompleted" class="completed-list-title">
+          {{ todo.todo }}
+        </li>
+        <li v-else class="not-completed-list-title">
+          {{ todo.todo }}
+        </li>
+      </a>
     </div>
   </ul>
 </template>
@@ -25,8 +27,13 @@ export default {
       return store.state.todos;
     });
 
+    const handleToggle = (todo) => {
+      todo.isCompleted = !todo.isCompleted;
+    };
+
     return {
       todos,
+      handleToggle,
     };
   },
 };

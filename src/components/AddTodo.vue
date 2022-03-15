@@ -28,6 +28,7 @@ export default {
       };
 
       store.dispatch("addAction", object);
+      todo.value = "";
     };
     return { todo, addTodo };
   },
@@ -49,9 +50,10 @@ export default {
   font-family: "Fredoka", sans-serif;
   background-color: rgb(255, 255, 255, 0.1);
   color: rgb(156, 165, 250);
+  text-align: center;
 }
 .addInput::placeholder {
-  color: rgb(156, 165, 250, 0.7);
+  color: rgb(156, 165, 250, 0.5);
   text-align: center;
 }
 .addInput:focus-visible {

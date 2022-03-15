@@ -36,7 +36,7 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 30px;
+  margin: 30px 0;
 }
 .completed-todo,
 .not-completed-todo {
