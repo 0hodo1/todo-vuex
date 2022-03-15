@@ -1,14 +1,42 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 export default createStore({
   state: {
+    todos: [
+      { id: 1, todo: "Learn Vue", isCompleted: true },
+      { id: 2, todo: "Learn Vuex", isCompleted: false },
+      { id: 3, todo: "Learn Vue Router", isCompleted: true },
+    ],
   },
   getters: {
+    todosCount(state) {
+      return state.todos.length;
+    },
+
+    completedTodosCount(state) {
+      return state.todos.filter((todo) => todo.isCompleted).length;
+    },
+
+    notCompletedTodosCount(state) {
+      return state.todos.filter((todo) => !todo.isCompleted).length;
+    },
   },
   mutations: {
+    add(state, { todoName, isCompleted }) {
+      let todo = {
+        id: Math.floor(Math.random() * 10000),
+        todo: todoName,
+        isCompleted: isCompleted,
+      };
+      state.todos.push(todo);
+    },
   },
   actions: {
+    addAction(context, object) {
+      context.commit("add", object);
+      // setTimeout(() => {
+      // }, 2000);
+    },
   },
-  modules: {
-  }
-})
+  modules: {},
+});
